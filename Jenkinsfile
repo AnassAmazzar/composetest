@@ -9,9 +9,7 @@ pipeline {
         }
         stage('Exemple') {
             steps {
-                withGroovy {
-                    sh 'ls -l'
-                }
+                sh 'ls -l'
             }
         }
     }
