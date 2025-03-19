@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'docker ps'
+                sh 'pip install --upgrade pip'
+                sh 'pip install ansible'
             }
         }
         stage('Execute PlayBook') {
@@ -19,7 +20,7 @@ pipeline {
         }
         stage('Check docker conatiner') {
             steps {
-                sh 'docker ps'
+                sh 'sudo docker ps'
             }
         }
     }
