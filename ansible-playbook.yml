@@ -3,19 +3,19 @@
   hosts: localhost
   tasks:
   - name: Stop running container
-    command: docker-compose down
+    command: sudo docker-compose down
     ignore_errors: yes
 
   - name: Run docker compose file
-    command: docker-compose up -d
+    command: sudo docker-compose up -d
 
   - name: Create tag to img
-    command: docker tag composetest_web ghcr.io/anassamazzar/composetest
+    command: sudo docker tag composetest_web ghcr.io/anassamazzar/composetest
 
   - name: Push image to dockerhub
-    command: docker push ghcr.io/anassamazzar/composetest:latest
+    command: sudo docker push ghcr.io/anassamazzar/composetest:latest
 
   - name: Stop running container
-    command: docker-compose down
+    command: sudo docker-compose down
     ignore_errors: yes
   # composetest_web
