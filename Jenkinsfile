@@ -7,6 +7,11 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage('Install Dependencies') {
+            steps {
+                sh 'docker ps'
+            }
+        }
         stage('Execute PlayBook') {
             steps {
                 sh 'ansible-playbook ansible-playbook.yml'
