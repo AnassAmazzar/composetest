@@ -7,9 +7,14 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('Exemple') {
+        stage('Execute PlayBook') {
             steps {
-                sh 'ls -l'
+                sh 'ansible-playbook ansible-playbook.yml'
+            }
+        }
+        stage('Check docker conatiner') {
+            steps {
+                sh 'docker ps'
             }
         }
     }

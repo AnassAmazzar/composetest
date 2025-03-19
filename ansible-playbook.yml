@@ -6,9 +6,6 @@
     command: docker-compose down
     ignore_errors: yes
 
-  - name: liste files
-    command: ls -l
-
   - name: Run docker compose file
     command: docker-compose up -d
 
