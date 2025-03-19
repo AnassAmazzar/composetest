@@ -9,6 +9,8 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
+                sh 'python3 -V'
+                sh 'pip -V'
                 sh 'pip install --upgrade pip'
                 sh 'pip install ansible'
             }
