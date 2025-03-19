@@ -7,12 +7,15 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage('check changes') {
+            steps {
+                sh 'which ansible' 
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 sh 'python3 -V'
                 sh 'pip -V'
-                sh 'pip install --upgrade pip'
-                sh 'pip install ansible'
             }
         }
         stage('Execute PlayBook') {
