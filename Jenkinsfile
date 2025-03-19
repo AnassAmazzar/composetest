@@ -10,7 +10,7 @@ pipeline {
         stage('Exemple') {
             steps {
                 withGroovy {
-                    sh 'groovy --version'
+                    sh 'ls -l'
                 }
             }
         }
