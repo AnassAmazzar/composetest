@@ -1,0 +1,25 @@
+---
+- name: "Build container with ansible"
+  hosts: localhost
+  tasks:
+  - name: Stop running container
+    command: docker-compose down
+    ignore_errors: yes
+
+  - name: liste files
+    command: ls -l
+
+  - name: Run docker compose file
+    command: docker-compose up -d
+
+  - name: Create tag to img
+    command: docker tag composetest_web ghcr.io/anassamazzar/composetest
+
+  - name: Push image to dockerhub
+    command: docker push ghcr.io/anassamazzar/composetest:latest
+
+
+  # - name: Stop running container
+  #   command: docker-compose down
+  #   ignore_errors: yes
+  # composetest_web
