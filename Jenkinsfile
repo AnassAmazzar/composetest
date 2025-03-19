@@ -15,7 +15,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'python3 -V'
-                sh 'pip -V'
             }
         }
         stage('Execute PlayBook') {
