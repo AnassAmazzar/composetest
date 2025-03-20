@@ -4,8 +4,11 @@
   tasks:
   - name: Check path
     command: pwd
+    register: result
+
+  - name: Display current directory
     debug:
-      msg: "{{ lookup('pipe', 'pwd') }}"
+      msg: "Current directory is: {{ result.stdout }}"
   
   - name: Stop running container
     command: docker-compose down
