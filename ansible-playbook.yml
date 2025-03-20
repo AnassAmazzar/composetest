@@ -17,7 +17,7 @@
   - name: Run docker compose file
     command: docker-compose up
 
-  - name: Check running container
+  - name: Check running container in this server
     command: docker ps
 
   # - name: Create tag to img
