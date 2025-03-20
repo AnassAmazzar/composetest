@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
   - name: Check path
-    command: ls -l compose-test
+    command: ls -l
     register: result
 
   - name: Display file
