@@ -11,11 +11,11 @@
       msg: "Current file is: {{ result.stdout }}"
   
   - name: Stop running container
-    command: docker-compose ../../jenkins/workspace/compose-test/docker-compose.yml down
+    command: docker-compose -f ../../jenkins/workspace/compose-test/docker-compose.yml down
     ignore_errors: yes
 
-  # - name: Run docker compose file
-  #   command: docker-compose -f docker-compose.yml
+  - name: Run docker compose file
+    command: docker-compose -f ../../jenkins/workspace/compose-test/docker-compose.yml
 
   # - name: Create tag to img
   #   command: docker tag composetest_web ghcr.io/anassamazzar/composetest
