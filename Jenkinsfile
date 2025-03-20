@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Check User') {
             steps {
-                echo 'Hello World'
+                sh 'whoami'
             }
         }
         stage('check changes') {
