@@ -17,11 +17,11 @@ pipeline {
                 sh 'python3 -V'
             }
         }
-        // stage('Execute PlayBook') {
-        //     steps {
-        //         sh 'ansible-playbook ansible-playbook.yml'
-        //     }
-        // }
+        stage('Execute PlayBook') {
+            steps {
+                sh 'ansible-playbook ansible-playbook.yml'
+            }
+        }
         stage('Check Compose file') {
             steps {
                 sh 'ls -l docker-compose.yml'
