@@ -2,6 +2,9 @@
 - name: "Build container with ansible"
   hosts: localhost
   tasks:
+  - name: Check path
+    command: pwd
+  
   - name: Stop running container
     command: docker-compose down
     ignore_errors: yes
