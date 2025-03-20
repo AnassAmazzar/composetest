@@ -24,4 +24,4 @@ def hello():
 @app.route('/home')
 def hello():
     count = get_hit_count()
-    return f'Hello Anass Welcom to your website.'
+    return f'Hello Anass Welcom to your website. How are you ?'
