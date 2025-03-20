@@ -4,6 +4,8 @@
   tasks:
   - name: Check path
     command: pwd
+    debug:
+      msg: "{{ lookup('pipe', 'pwd') }}"
   
   - name: Stop running container
     command: docker-compose down
