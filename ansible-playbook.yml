@@ -3,12 +3,12 @@
   hosts: localhost
   tasks:
   - name: Check path
-    command: pwd
+    command: ls -l compose-test/
     register: result
 
-  - name: Display current directory
+  - name: Display file
     debug:
-      msg: "Current directory is: {{ result.stdout }}"
+      msg: "Current file is: {{ result.stdout }}"
   
   - name: Stop running container
     command: docker-compose down
