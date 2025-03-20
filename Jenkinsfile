@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Check docker conatiner') {
             steps {
-                sh 'sudo docker ps'
+                sh 'docker ps'
             }
         }
     }
