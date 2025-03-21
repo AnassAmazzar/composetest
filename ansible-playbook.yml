@@ -15,7 +15,7 @@
     ignore_errors: yes
 
   - name: Run docker compose file
-    command: docker-compose up
+    command: docker-compose up -d
 
   - name: Check running container
     command: docker ps
