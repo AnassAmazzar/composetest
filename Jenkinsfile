@@ -48,8 +48,7 @@ pipeline {
                     //sh 'docker pull ghcr.io/anassamazzar/compose-test-web:latest'
                     //sh 'docker run -d -p 8077:5000 ghcr.io/anassamazzar/compose-test-web'
                     sh """
-                    sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} 
-                    'whoami'
+                    sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} 'whoami'
                     """
                 }
             }
