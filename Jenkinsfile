@@ -1,6 +1,13 @@
 pipeline {
     agent any
 
+    environment {
+        SSH_PASSWORD = credentials('my-secret-password')
+        SSH_USER = 'root'
+        SSH_HOST = '192.168.8.101'
+        SSH_PORT = '9950'
+    }
+
     stages {
         stage('Check User') {
             steps {
@@ -35,11 +42,15 @@ pipeline {
         stage('Remote acces') {
             steps {
                 sshagent(['mod-prod-dind']) {
-                    sh 'whoami'
-                    sh 'ps -a'
-                    sh "ssh -vvv root@192.168.8.101 -p 9950 'whoami'"
+                    // sh 'whoami'
+                    // sh 'ps -a'
+                    // sh "ssh -vvv root@192.168.8.101 -p 9950 'whoami'"
                     //sh 'docker pull ghcr.io/anassamazzar/compose-test-web:latest'
                     //sh 'docker run -d -p 8077:5000 ghcr.io/anassamazzar/compose-test-web'
+                    sh """
+                    sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} 
+                    'docker run -d -p 8077:5000 ghcr.io/anassamazzar/compose-test-web'
+                    """
                 }
             }
         }
