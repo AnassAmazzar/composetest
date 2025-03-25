@@ -37,7 +37,7 @@ pipeline {
                 sshagent(['mod-prod-dind']) {
                     sh 'whoami'
                     sh 'ps -a'
-                    sh "ssh root@192.168.8.101 -p 9950 'whoami'"
+                    sh "ssh -vvv root@192.168.8.101 -p 9950 'whoami'"
                     //sh 'docker pull ghcr.io/anassamazzar/compose-test-web:latest'
                     //sh 'docker run -d -p 8077:5000 ghcr.io/anassamazzar/compose-test-web'
                 }
