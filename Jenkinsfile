@@ -35,7 +35,7 @@ pipeline {
         stage('Remote acces') {
             steps {
                 sshagent(['mod-prod-dind']) {
-                    sh "ssh root@972f4a0e6c23 'whoami'"
+                    sh "ssh root@192.168.8.101 -p 9950 'whoami'"
                     sh 'whoami'
                     sh 'ps -a'
                     //sh 'docker pull ghcr.io/anassamazzar/compose-test-web:latest'
