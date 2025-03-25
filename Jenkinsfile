@@ -35,8 +35,9 @@ pipeline {
         stage('Remote acces') {
             steps {
                 sshagent(['mod-prod-dind']) {
+                    sh 'pas -a'
                     //sh 'docker pull ghcr.io/anassamazzar/compose-test-web:latest'
-                    sh 'docker run -d -p 8077:5000 ghcr.io/anassamazzar/compose-test-web'
+                    //sh 'docker run -d -p 8077:5000 ghcr.io/anassamazzar/compose-test-web'
                 }
             }
         }
