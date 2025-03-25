@@ -25,12 +25,3 @@
 
   - name: Push image to dockerhub
     command: docker push ghcr.io/anassamazzar/compose-test-web:latest
-
-
-
-
-
-
-  # - name: Stop running container
-  #   command: docker-compose down
-  #   ignore_errors: yes
