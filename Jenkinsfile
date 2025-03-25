@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Remote acces') {
             steps {
-                sshagent(['prod-docker']) {
+                sshagent(['mod-prod-dind']) {
                     // sh '''ssh -o StrictHostKeyChecking=no -p 2255 root@172.24.224.93 "pwd"'''
                     // sh 'docker stop compose-test-web'
                     sh 'docker pull ghcr.io/anassamazzar/compose-test-web:latest'
