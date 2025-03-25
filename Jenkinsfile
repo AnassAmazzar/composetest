@@ -45,6 +45,7 @@ pipeline {
                     sh """
                     ssh -i jenkins/.ssh/id_rsa root@192.168.8.101 -p 9950
                     whoami
+                    pwd
                     exit
                     """
                     // sh 'whoami'
