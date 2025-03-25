@@ -42,14 +42,19 @@ pipeline {
         stage('Remote acces') {
             steps {
                 sshagent(['mod-prod-dind']) {
+                    sh """
+                    ssh -i jenkins/.ssh/id_rsa root@192.168.8.101 -p 9950
+                    whoami
+                    exit
+                    """
                     // sh 'whoami'
                     // sh 'ps -a'
                     // sh "ssh -vvv root@192.168.8.101 -p 9950 'whoami'"
                     //sh 'docker pull ghcr.io/anassamazzar/compose-test-web:latest'
                     //sh 'docker run -d -p 8077:5000 ghcr.io/anassamazzar/compose-test-web'
-                    sh """
-                    sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} 'whoami'
-                    """
+                    // sh """
+                    // sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} 'whoami'
+                    // """
                 }
             }
         }
