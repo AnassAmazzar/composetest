@@ -20,11 +20,11 @@
   - name: Check running container
     command: docker ps
 
-  # - name: Create tag to img
-  #   command: docker tag composetest_web ghcr.io/anassamazzar/composetest
+  - name: Create tag to img
+    command: docker tag composetest_web ghcr.io/anassamazzar/composetest
 
-  # - name: Push image to dockerhub
-  #   command: docker push ghcr.io/anassamazzar/composetest:latest
+  - name: Push image to dockerhub
+    command: docker push ghcr.io/anassamazzar/composetest:latest
 
   # - name: Stop running container
   #   command: docker-compose down

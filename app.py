@@ -21,7 +21,7 @@ def hello():
     count = get_hit_count()
     return f'Hello World! I have been seen web site {count} times.'
 
-# @app.route('/home')
-# def hello():
-#     count = get_hit_count()
-#     return f'Hello Ahmed Welcom to your website.'
+@app.route('/home')
+def hello():
+    count = get_hit_count()
+    return f'Hello Ahmed Welcom to your website.'

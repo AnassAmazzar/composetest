@@ -32,5 +32,12 @@ pipeline {
                 sh 'docker ps'
             }
         }
+        stage('Remote acces') {
+            steps {
+                sshagent(['prod-docker']) {
+                    sh '''ssh -o StrictHostKeyChecking=no -p 2255 root@172.24.224.93 "pwd"'''
+                }
+            }
+        }
     }
 }
